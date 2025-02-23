@@ -1,3 +1,7 @@
+//global variables to keep score
+humanScore = 0;
+computerScore = 0;
+
 //randomly returns one of the strings "rock", "paper" or "scissors"
 function getComputerChoice(){
     const randomNumber = Math.floor((Math.random() * 3));
