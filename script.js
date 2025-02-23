@@ -26,8 +26,44 @@ function getHumanChoice(){
     if( lowerCaseInput === "rock" || lowerCaseInput === "paper" || lowerCaseInput === "scissors"){
         return(lowerCaseInput);
     } else {
-        return("Invalid input");
+        console.log("Invalid input, defaulting to rock.")
+        return("rock");
     }
 }
 
-console.log(getHumanChoice());
+//Plays a single round of rock paper scissors
+function playRound(humanChoice, computerChoice){
+    if(humanChoice === "rock"){
+        if(computerChoice === "rock"){
+            console.log("Draw! Rock matches Rock");
+        } else if(computerChoice === "paper"){
+            console.log("You Lose. Paper wraps Rock");
+            computerScore += 1;
+        } else {
+            console.log("You Win! Rock blunts Scissors");
+            humanScore += 1;
+        }
+    } else if(humanChoice === "paper"){
+        if(computerChoice === "rock"){
+            console.log("You Win! Paper wraps Rock");
+            humanScore += 1;
+        } else if(computerChoice === "paper"){
+            console.log("Draw! Paper matches Paper");
+        } else {
+            console.log("You Lose! Scissors cut Paper");
+            computerScore += 1;
+        }
+    } else {
+        if(computerChoice === "rock"){
+            console.log("You Lose! Rock blunts Scissors");
+            computerScore += 1;
+        } else if(computerChoice === "paper"){
+            console.log("You Win! Scissors cut Paper");
+            humanScore += 1;
+        } else {
+            console.log("Draw! Scissors matches Scissors");
+        } 
+    }
+}
+
+playRound(getHumanChoice(), getComputerChoice());
