@@ -15,10 +15,13 @@ inputPanel.addEventListener('click', (event) => {
     const scoreDiv = document.querySelector("#score");
     scoreDiv.textContent = `Player score: ${humanScore}\nComputer score: ${computerScore}`;
 
+    const finish = document.querySelector("#finish");
     if(humanScore === 5 || computerScore === 5){
         let gameOver = new CustomEvent("gameOver");
-        const finish = document.querySelector("#finish");
         finish.dispatchEvent(gameOver);
+    }else{
+        //if game not finished then display nothing
+        finish.textContent = "";
     }
 });
 
@@ -31,6 +34,10 @@ finish.addEventListener('gameOver', (event) => {
     else{
         finish.textContent = "Game over, You lose!";
     }
+
+    //reset game
+    humanScore = 0;
+    computerScore = 0;
 });
 
 
